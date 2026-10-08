@@ -15,18 +15,12 @@ public class VendingMachineTest {
     VendingMachineItem item1;
     VendingMachineItem item2;
     VendingMachineItem item3;
-    VendingMachineItem item4;
-    VendingMachineItem item5;
 
     @BeforeEach 
     void setUp() {
         vendingMachine = new VendingMachine();
         item1 = new VendingMachineItem("Banana", 1.50);
         item2 = new VendingMachineItem("Poptart", 2.50);
-        item3 = new VendingMachineItem("Pretzels", 1.00);
-        item4 = new VendingMachineItem("Nachos", 3.00);
-        item5 = new VendingMachineItem("Hot Dog", 5.00);
-        
     }
 
     @AfterEach
@@ -35,8 +29,6 @@ public class VendingMachineTest {
         item1 = null;
         item2 = null;
         item3 = null;
-        item4 = null;
-        item5 = null;
     } 
 
     @Test
@@ -47,6 +39,12 @@ public class VendingMachineTest {
     @Test
     void testGetPrice() {
         assertEquals(1.50, item1.getPrice(), 0.01);
+    }
+
+    @Test 
+    void testVendingMachineItemLessZero(){
+        assertThrows(VendingMachineException.class, () -> item3 = new VendingMachineItem("Krabby Patty", -100.00));
+        
     }
 
     @ParameterizedTest 
@@ -97,7 +95,7 @@ public class VendingMachineTest {
     @Test
     void testMakePurchase() {
         vendingMachine.addItem(item1, "A");
-        vendingMachine.addItem(item5, "B");
+        vendingMachine.addItem(item2, "B");
         vendingMachine.insertMoney(1.50); 
 
         assertTrue(vendingMachine.makePurchase("A"));
