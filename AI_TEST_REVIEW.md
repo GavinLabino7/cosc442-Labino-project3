@@ -1,0 +1,7 @@
+AI Conversation Link: https://chatgpt.com/c/6ac7e34d-9b44-83e9-8e3a-fba07de849db
+
+Overall, I would say the AI I used (chatgpt), did an alright job. Something the AI did well was making sure all of the edge cases, exceptions, and invalid cases werecovered. What the AI did poorly is formatting and not using a few key features. The AI did not use paramaterized tests, setup, and teardown. This added a lot of extra code that only makes things harder the read. Compared to my project 2 test suite is way shorter than the AI by about 20 tests. Although the formatting and the use of paramaterized tests, as well as setup and teardown makes way better use of code.
+
+The coverage guided prompting made the AI add a few tests to tests some edge cases. For example, makePurchaseFailsWhenNotEnoughMoneyIsInserte() tests the equality sign in balance >= price. AI did generate redundant code in machineStartsEmptyWithZeroBalance() uses assertNull 4 times instead of parameterized testing and only using one assertNull. 
+
+After this exercise, the strengths of using AI to generate tests is that it is able to look at all possibe edge cases as well as invalid cases, as well as being able to generate cases of bigger snippets of code. It seems to have limitations regarding more advanced tools ike parameterized tests, teardown, and setup. Which makes testing easier to make and read. 
