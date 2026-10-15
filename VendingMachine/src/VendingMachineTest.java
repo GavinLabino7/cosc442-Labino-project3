@@ -31,22 +31,26 @@ public class VendingMachineTest {
         item3 = null;
     } 
 
+    //test getName() method
     @Test
     void testGetName() {
         assertEquals("Banana", item1.getName());
     }
 
+    //test getPrice() method
     @Test
     void testGetPrice() {
         assertEquals(1.50, item1.getPrice(), 0.01);
     }
 
+    //test vendingMachineItem() method
     @Test 
     void testVendingMachineItemLessZero(){
         assertThrows(VendingMachineException.class, () -> item3 = new VendingMachineItem("Krabby Patty", -100.00));
         
     }
 
+    //test slotIndex() method
     @ParameterizedTest 
     @CsvSource ({
         "A", "B", "C", "D"
@@ -56,23 +60,27 @@ public class VendingMachineTest {
         assertEquals(item1, vendingMachine.getItem(Code));
     }
 
+    //test slotIndex() method
     @Test
     void testSlotIndexNull() {
         vendingMachine.addItem(item1, "A");
         assertThrows(VendingMachineException.class, () -> vendingMachine.getItem(null));
     }
 
+    //test addItem() method
     @Test
     void testAddItem() {
         vendingMachine.addItem(item1, "A");
         assertThrows(VendingMachineException.class, () -> vendingMachine.addItem(item2, "A"));
     }
 
+    //test getBalance() method
     @Test
     void testGetBalance() {
          assertEquals(0.0, vendingMachine.getBalance(), 0.01);
     }
 
+    //test getItem() method
     @Test
     void testGetItem() {
         vendingMachine.addItem(item1, "A");
@@ -81,6 +89,7 @@ public class VendingMachineTest {
 
     }
 
+    //test insertMoney() method
     @Test
     void testInsertMoney() {
         vendingMachine.insertMoney(0.00);
@@ -92,6 +101,7 @@ public class VendingMachineTest {
         assertThrows(VendingMachineException.class, () -> vendingMachine.insertMoney(-1.00));
     }
 
+    //test makePurchase() method
     @Test
     void testMakePurchase() {
         vendingMachine.addItem(item1, "A");
@@ -104,6 +114,7 @@ public class VendingMachineTest {
         assertFalse(vendingMachine.makePurchase("B"));   
     }
 
+    //test removeItem() method
     @Test
     void testRemoveItem() {
         vendingMachine.addItem(item1, "A"); 
@@ -112,6 +123,7 @@ public class VendingMachineTest {
         assertThrows(VendingMachineException.class, () -> vendingMachine.removeItem("A")); 
     }
 
+    //test returnChange() method
     @Test
     void testReturnChange() {
         vendingMachine.insertMoney(5.00); 
